@@ -1,13 +1,10 @@
 package controller.Flights;
 
 import au.edu.uts.ap.javafx.Controller;
-import au.edu.uts.ap.javafx.ViewLoader;
-import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
+
 import model.*;
 import model.Exceptions.*;
 
@@ -23,7 +20,7 @@ public class ModifyFlightsController extends Controller<Agency> {
     @FXML
     private TextField costTf;
 
-    private Stage flightsStage = new Stage();
+  
 
         @FXML
     private void handleAddFlight(ActionEvent event) {
