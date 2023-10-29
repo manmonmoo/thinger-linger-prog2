@@ -6,24 +6,25 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.*;
-import javafx.scene.control.TextField;
-import model.Exceptions.*;
-public class BookTripController extends Controller<Agency> {
+import model.Exceptions.DuplicateItemException;
+import model.Exceptions.InsufficientDestinationsException;
+
+public class BookTripController extends Controller<Trip> {
+    
     private Stage viewTripStage = new Stage();
+    private Stage addfStage = new Stage();
+    private Stage removefStage = new Stage();
 
-    @FXML
-    private TextField nameTf;
-    @FXML
-    private TextField countryTf;
-
+    @FXML private ListView<Itinery> itineryListView;
 
     @FXML
     private Label greetingLabel;
     public void initialize() {
-        Administrator admin = model.getLoggedInUser();
+        Administrator admin = model.getAgency().getLoggedInUser();
         if (admin != null) {
             greetingLabel.setText("Hi, " + admin.getName() + ", welcome to the Flights section");
         }
@@ -31,47 +32,28 @@ public class BookTripController extends Controller<Agency> {
 
     @FXML
     private void addDestination(ActionEvent event) {
-        String name = nameTf.getText();
-        String country = countryTf.getText();
-
         try {
-            if (model.getDestinations().hasDestination(name, country)) {
-                exit(event);
-                throw new DuplicateItemException();
-            } else {
-                model.getDestinations().addDestination(new Destination(name, country));
-                exit(event); // Close the window if input is valid
-            }
-        } catch (DuplicateItemException e) {
-            showErrorWindow(e, "Destination with the same name and country already exists.");
+            ViewLoader.showStage(model, "/view/Destinations/AddDestinationView.fxml", "Add a Destination", addfStage);
+           addfStage.getIcons().add(new Image("/image/destinations_icon.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     @FXML
     private void removeDestination(ActionEvent event) {
-        String name = nameTf.getText();
-        String country = countryTf.getText();
-
         try {
-            Destination destinationToRemove = model.getDestinations().getDestination(name, country);
-            if (destinationToRemove != null) {
-                model.getDestinations().removeDestination(destinationToRemove);
-                exit(event); // Close the window if input is valid
-            } else {
-                throw new ItemNotFoundException();
-            }
-        } catch (ItemNotFoundException e) {
-            showErrorWindow(e, "Destination with the specified name and country was not found.");
+            ViewLoader.showStage(model, "/view/Destinations/RemoveDestinationView.fxml", "Remove a Destination", removefStage);
+            removefStage.getIcons().add(new Image("/image/destinations_icon.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    private void showErrorWindow(Exception e, String message) {
-        // Implement the logic to show the error window with the provided message
-    }
-
     @FXML
-    private void addConnectingFlights(ActionEvent event) {
-        // Implement logic to add connecting flights
+    private void addConnectingFlights(ActionEvent event) throws DuplicateItemException, InsufficientDestinationsException {
+        model.addConnectingFlights();
+        itineryListView.setItems(model.getItinery());
     }
 
     @FXML
@@ -82,6 +64,10 @@ public class BookTripController extends Controller<Agency> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+      private void showErrorWindow(Exception e, String message) {
+        // Implement the logic to show the error window with the provided message
     }
 
     @FXML

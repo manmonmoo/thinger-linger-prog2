@@ -32,7 +32,9 @@
     <Button onAction="#addConnectingFlights" text="Add Connecting Flights" fx:id="addConnectingFlightsButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
     <Button onAction="#viewTrip" text="View Trip" fx:id="viewTripButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
     <Button onAction="#exit" text="Close" fx:id="exitButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-</HBox>
+    </HBox>
+
+   
 
     <stylesheets>
         <URL value="@../style.css"/>
