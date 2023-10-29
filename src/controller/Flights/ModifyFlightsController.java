@@ -52,11 +52,16 @@ public class ModifyFlightsController extends Controller<Agency> {
             currentStage.close();
 
             ViewLoader.showStage(model, "/view/DisplayFlightsView.fxml", "Display Flights", flightsStage);
-            flightsStage.getIcons().add(new Image("/image/flights_icon.png"));
+            flightsStage.getIcons().add(new Image("/image/flights.png"));
         } catch (DuplicateItemException e) {
             new ErrorModel(e, "Flight with the same takeoff and landing already exists.");
         } catch (IOException e) {
             new ErrorModel(e, "Error loading the Display Flights view.");
         }
+    }
+    @FXML
+    private void handleClose(ActionEvent event) {
+        Stage currentStage = (Stage) airlineTf.getScene().getWindow();
+        currentStage.close();
     }
 }

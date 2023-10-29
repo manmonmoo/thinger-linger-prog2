@@ -17,36 +17,44 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="20" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyFlightsController">
-    <ImageView fitHeight="100.0" fitWidth="100.0" preserveRatio="true">
-        <image>
-            <Image url="@../../image/flights_icon.png" />
-        </image>
-    </ImageView>
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="20" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlightsController">
+    <ImageView fx:id="agencyImageView" fitHeight="200.0" fitWidth="800.0" preserveRatio="true">
+      <image>
+         <Image url="@../../image/flight.png"/>
+      </image></ImageView>
+
+     <Separator />
     <Label styleClass="heading" text="Add Flights" />
     <Separator />
-    <HBox alignment="CENTER" spacing="10">
-        <Label text="Airline:" />
-        <TextField fx:id="airlineTf" />
+
+    <VBox spacing="10">
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Airline:" />
+            <TextField fx:id="airlineTf" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Flight Number:" />
+            <TextField fx:id="flightNumberTf" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Takeoff:" />
+            <TextField fx:id="takeoffTf" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Landing:" />
+            <TextField fx:id="landingTf" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Cost:" />
+            <TextField fx:id="costTf" />
+        </HBox>
+    </VBox>
+    <HBox alignment="CENTER">
+        <Button fx:id="addFlightButton" onAction="#handleAddFlight" text="Add Flight"  HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+        <Button onAction="#handleClose" text="Close" fx:id="exitButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
     </HBox>
-    <HBox alignment="CENTER" spacing="10">
-        <Label text="Flight Number:" />
-        <TextField fx:id="flightNumberTf" />
-    </HBox>
-    <HBox alignment="CENTER" spacing="10">
-        <Label text="Takeoff Country:" />
-        <TextField fx:id="takeoffTf" />
-    </HBox>
-    <HBox alignment="CENTER" spacing="10">
-        <Label text="Landing Country:" />
-        <TextField fx:id="landingTf" />
-    </HBox>
-    <HBox alignment="CENTER" spacing="10">
-        <Label text="Cost:" />
-        <TextField fx:id="costTf" />
-    </HBox>
-    <Button fx:id="addFlightButton" onAction="#handleAddFlight" text="Add Flight" />
     <stylesheets>
-        <URL value="@style.css" />
+        <URL value="@../style.css" />
     </stylesheets>
 </VBox>
+
