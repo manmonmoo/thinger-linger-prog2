@@ -25,7 +25,7 @@ public class ModifyFlightsController extends Controller<Agency> {
 
     private Stage flightsStage = new Stage();
 
-     @FXML
+        @FXML
     private void handleAddFlight(ActionEvent event) {
         String airline = airlineTf.getText();
         int flightNumber;
@@ -43,11 +43,14 @@ public class ModifyFlightsController extends Controller<Agency> {
 
         try {
             if (model.getFlights().hasFlight(takeoff, landing)) {
+                exit(event);
                 throw new DuplicateItemException();
             }
-
-            model.getFlights().addFlight(new Flight(airline, flightNumber, takeoff, landing, cost));
-            exit(event); // Close the window if input is valid
+            else {
+                model.getFlights().addFlight(new Flight(airline, flightNumber, takeoff, landing, cost));
+                exit(event); // Close the window if input is valid
+            }
+            
         } catch (DuplicateItemException e) {
             showErrorWindow(e, "Flight with the same takeoff and landing already exists.");
         }

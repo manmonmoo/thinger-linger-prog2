@@ -38,7 +38,7 @@
         
    
     <HBox alignment="CENTER">
-        <Button fx:id="addFlightButton" onAction="#handleAddFlight" text="Add Flight"  HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+        <Button fx:id="addFlightButton" onAction="#handleRemoveFlight" text="Remove Flight"  HBox.hgrow="ALWAYS" maxWidth="Infinity" />
         <Button onAction="#exit" text="Close" fx:id="exitButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
     </HBox>
     <stylesheets>

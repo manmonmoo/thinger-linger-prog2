@@ -21,6 +21,7 @@
     <Label fx:id="greetingLabel1" text="Flights" styleClass="heading"/>
     <Separator style="-fx-padding: 20 0 10 0;"/>
 
+    <TextField fx:id="countryFilterTf" promptText="Filter by Country" />
     <!-- Table-->
     <TableView fx:id="flightsTableView" VBox.vgrow="ALWAYS">
         <columns>
