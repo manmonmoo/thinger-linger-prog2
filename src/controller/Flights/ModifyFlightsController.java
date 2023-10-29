@@ -59,9 +59,28 @@ public class ModifyFlightsController extends Controller<Agency> {
             new ErrorModel(e, "Error loading the Display Flights view.");
         }
     }
+
     @FXML
-    private void handleClose(ActionEvent event) {
-        Stage currentStage = (Stage) airlineTf.getScene().getWindow();
+    private void handleRemoveFlight(ActionEvent event) throws ItemNotFoundException {
+        String takeoff = takeoffTf.getText();
+        String landing = landingTf.getText();
+
+        Flight flightToRemove = model.getFlights().getFlight(takeoff, landing);
+        if (flightToRemove != null) {
+            model.getFlights().removeFlight(flightToRemove);
+            // Optionally, display a success message to the user
+        } else {
+            // Display an error message to the user indicating that the flight was not found
+            new ErrorModel(new Exception(), "Flight with the specified takeoff and landing locations was not found.");
+        }
+
+        Stage currentStage = (Stage) takeoffTf.getScene().getWindow();
         currentStage.close();
+    }
+
+
+    @FXML
+    private void exit(ActionEvent event) {
+        stage.close();
     }
 }
