@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
 <?import javafx.geometry.Pos?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.*?>	
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1">
-            
-        
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="20" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.ModifyDestinationsController">
+    <ImageView fx:id="destinationImageView" fitHeight="200.0" fitWidth="800.0" preserveRatio="true">
+        <image>
+            <Image url="@../../image/destination.png"/>
+        </image>
+    </ImageView>
+
+    <Separator />
+    <Label styleClass="heading" text="Add Destination" />
+    <Separator />
+
+    <VBox spacing="10">
+        <HBox alignment="CENTER" spacing="5">
+            <Label text="Name:" />
+            <TextField fx:id="nameTf" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="5">
+            <Label text="Country:" />
+            <TextField fx:id="countryTf" />
+        </HBox>
+    </VBox>
+    <HBox alignment="CENTER">
+        <Button fx:id="addDestinationButton" onAction="#handleAddDestination" text="Add Destination"  HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button onAction="#exit" text="Close" fx:id="exitButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@../style.css" />
+    </stylesheets>
 </VBox>

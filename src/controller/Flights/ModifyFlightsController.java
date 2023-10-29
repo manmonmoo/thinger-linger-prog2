@@ -71,6 +71,8 @@ public class ModifyFlightsController extends Controller<Agency> {
         }
     }
 
+    
+
     private void showErrorWindow(Exception e, String message) {
         // Implement the logic to show the error window with the provided message
     }

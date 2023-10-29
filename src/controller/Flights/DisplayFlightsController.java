@@ -1,7 +1,6 @@
 package controller.Flights;
 
 import au.edu.uts.ap.javafx.Controller;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;

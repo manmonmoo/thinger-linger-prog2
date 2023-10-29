@@ -27,8 +27,8 @@
     <!-- Table-->
     <TableView fx:id="destinationsTableView" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="nameColumn" text="Name" />
-            <TableColumn fx:id="countryColumn" text="Country" />
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="400.0"/>
+            <TableColumn fx:id="countryColumn" text="Country" prefWidth="400.0" />
         </columns>
     </TableView>
 
