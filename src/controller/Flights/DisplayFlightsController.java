@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import model.*;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class DisplayFlightsController extends Controller<Agency> {
 

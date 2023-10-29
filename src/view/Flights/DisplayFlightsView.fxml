@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -10,16 +9,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 
-<VBox fx:controller="controller.Flights.DisplayFlightsController" alignment="CENTER"  styleClass="background" prefHeight="200.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="controller.Flights.DisplayFlightsController" alignment="CENTER"  styleClass="background" prefHeight="1000.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1">
     <!-- Image at the top -->
    <ImageView fx:id="DisplayflightsView" fitHeight="200.0" fitWidth="800.0" preserveRatio="true">
       <image>
          <Image url="@../../image/flight.png" />
       </image></ImageView>
     
-    <!-- Pane to take up the remaining space above the greeting -->
-    <Pane VBox.vgrow="ALWAYS"/>
-
     <!-- Greeting in the middle -->
     <Separator style="-fx-padding: 20 0 10 0;"/>
     <Label fx:id="greetingLabel1" text="Flights" styleClass="heading"/>
@@ -35,9 +31,6 @@
             <TableColumn fx:id="costColumn" text="Cost" />
         </columns>
     </TableView>
-
-    <!-- Pane to take up the remaining space above the buttons -->
-    <Pane VBox.vgrow="ALWAYS"/>
 
     <!-- Buttons at the bottom -->
     <HBox alignment="CENTER" >
