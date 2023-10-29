@@ -50,7 +50,7 @@ public class ExploreFlightsController extends Controller<Agency> {
     private void addFlight(ActionEvent event) {
         try {
             ViewLoader.showStage(model, "/view/Flights/AddFlightView.fxml", "Add a Flight", addfStage);
-           addfStage.getIcons().add(new Image("/image/flight_icon.png"));
+           addfStage.getIcons().add(new Image("/image/flights_icon.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,7 +60,7 @@ public class ExploreFlightsController extends Controller<Agency> {
     private void removeFlight(ActionEvent event) {
         try {
             ViewLoader.showStage(model, "/view/Flights/RemoveFlightView.fxml", "Remove a Flight", removefStage);
-            removefStage.getIcons().add(new Image("/image/flight_icon.png"));
+            removefStage.getIcons().add(new Image("/image/flights_icon.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
