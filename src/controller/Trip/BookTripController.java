@@ -14,10 +14,16 @@ import model.Exceptions.DuplicateItemException;
 import model.Exceptions.InsufficientDestinationsException;
 
 public class BookTripController extends Controller<Trip> {
-    
+    private Agency agency;
+
+    public void setAgency(Agency agency) {
+        this.agency = agency;
+    }
+
     private Stage viewTripStage = new Stage();
     private Stage addfStage = new Stage();
     private Stage removefStage = new Stage();
+
 
     @FXML private ListView<Itinery> itineryListView;
 

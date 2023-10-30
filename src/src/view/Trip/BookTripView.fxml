@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox fx:controller="controller.Trip.BookTripController" alignment="CENTER" styleClass="background" prefHeight="200.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1">
+    <!-- Image at the top -->
+   <ImageView fx:id="tripImageView" fitHeight="200.0" fitWidth="800.0" preserveRatio="true">
+      <image>
+         <Image url="@../../image/trip.png" />
+      </image></ImageView>
+    
+    <Pane VBox.vgrow="ALWAYS"/>
+
+    <!-- Greeting in the middle -->
+    <Separator style="-fx-padding: 20 0 10 0;"/>
+    <Label fx:id="greetingLabel" text="Book a Trip" styleClass="heading" />
+    <Separator style="-fx-padding: 20 0 10 0;"/>
+
+    <Pane VBox.vgrow="ALWAYS"/>
+
+    <!-- Buttons at the bottom -->
+    <HBox alignment="CENTER">
+    <Button onAction="#addDestination" text="Add Destination" fx:id="addDestinationButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"  />
+    <Button onAction="#removeDestination" text="Remove Destination" fx:id="removeDestinationButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    <Button onAction="#addConnectingFlights" text="Add Connecting Flights" fx:id="addConnectingFlightsButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    <Button onAction="#viewTrip" text="View Trip" fx:id="viewTripButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    <Button onAction="#exit" text="Close" fx:id="exitButton" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    </HBox>
+
+   
+
+    <stylesheets>
+        <URL value="@../style.css"/>
+    </stylesheets>
+</VBox>
